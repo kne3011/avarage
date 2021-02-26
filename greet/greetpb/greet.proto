@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package="gitlab.com\\tleuzhan13\\grpc-go-course\\greet\\greetpb;greetpb";
+
+message Greeting {
+  float number = 1;
+}
+
+message LongGreetRequest {
+  Greeting greeting = 1;
+}
+
+message LongGreetResponse {
+  float answer = 1;
+}
+
+
+service GreetService{
+  rpc LongGreet(stream LongGreetRequest) returns (LongGreetResponse) {};
+}
